@@ -36,7 +36,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0) && hit.collider.CompareTag("Ground"))
+            if (GameManager.isControllable && Physics.Raycast(ray, out hit) && Input.GetMouseButtonDown(0) && hit.collider.CompareTag("Ground"))
             {
                 target = new Vector3(hit.point.x, 0, hit.point.z);
                 agent.SetDestination(target);
